@@ -1,0 +1,14 @@
+<set-body>
+        @{
+            JObject reqBody = context.Request.Body.As<JObject>(true);
+            String firstname = ((Jwt)context.Variables["jwt"]).given_name;
+            String lastname = ((Jwt)context.Variables["jwt"]).family_name;
+            String oid = ((Jwt)context.Variables["jwt"]).oid;
+
+            reqBody["oid"] = oid;
+            reqBody["firstname"] = firstname;
+            reqBody["lastname"] = lastname;
+
+            return reqBody.ToString();
+        }
+</set-body>

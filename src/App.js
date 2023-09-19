@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { MsalProvider } from '@azure/msal-react';
+import { NavigationBar } from './components/NavigationBar';
+import { PageLayout } from './components/PageLayout';
+import { ProfileCard } from './components/ProfileCard';
+import { ProfilePage } from './pages/ProfilePage';
+import { ProductPage } from './pages/ProductPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { WelcomePage } from './pages/WelcomePage';
+import { CreateAccountPage } from './pages/CreateAccountPage';
+import { SummaryProfilePage } from './pages/SummaryProfilePage';
 
-function App() {
+function App({instance}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MsalProvider instance={instance}>
+      <div className="App">
+        <Router>
+        <PageLayout>
+            <Routes>
+              <Route path='/' element={<WelcomePage />} />
+              <Route path="/products" element={<ProductPage />} />
+              <Route path="/profiles" element={<ProfilePage />} />
+              <Route path="/profiles-lite" element={<SummaryProfilePage />} />
+              <Route path="/register" element={<CreateAccountPage />} />
+            </Routes>
+        </PageLayout>
+        </Router>
+      </div>
+    </MsalProvider>
   );
 }
 
