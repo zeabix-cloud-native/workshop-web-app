@@ -6,7 +6,7 @@ import {
     InteractionStatus,
 } from "@azure/msal-browser";
 
-import { GetProfile } from "../services/profileService"
+import { GetProfileByOID } from "../services/accountService"
 import { useEffect, useState } from "react";
 import { Avatar, Card, CardContent, CardHeader, CircularProgress, IconButton, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import { red } from '@mui/material/colors';
@@ -27,7 +27,7 @@ export const ProfileCard = (props) => {
             instance.acquireTokenSilent(loginRequest)
             .then((accessTokenResponse) => {
                 let accessToken = accessTokenResponse.accessToken;
-                GetProfile(props.id, accessToken).then((p) => setData(p)).catch((error) => console.log(error))
+                GetProfileByOID(accessToken).then((p) => setData(p)).catch((error) => console.log(error))
             })
             .catch((error) => {
                 if (error instanceof InteractionRequiredAuthError) {
@@ -36,7 +36,7 @@ export const ProfileCard = (props) => {
                     .then(function (accessTokenResponse) {
                       // Acquire token interactive success
                       let accessToken = accessTokenResponse.accessToken;
-                      GetProfile(props.id, accessToken).then((p) => setData(p)).catch((error) => console.log(error))
+                      GetProfileByOID(accessToken).then((p) => setData(p)).catch((error) => console.log(error))
                     })
                     .catch(function (error) {
                       // Acquire token interactive failure

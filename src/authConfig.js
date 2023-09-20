@@ -14,6 +14,7 @@ import { LogLevel } from '@azure/msal-browser';
 export const msalConfig = {
     auth: {
         clientId: 'c57b376f-166a-4531-b3cd-0d0a4d5daf0a', // This is the ONLY mandatory field that you need to supply.
+        //clientId: '4151ad83-6284-4fbd-9099-3ef58858c0d2',
         authority: 'https://login.microsoftonline.com/d13ad595-5883-4b3a-a953-bc0f981c0c35/', // Replace the placeholder with your tenant subdomain 
         redirectUri: '/', // Points to window.location.origin. You must register this URI on Azure Portal/App Registration.
         postLogoutRedirectUri: '/', // Indicates the page to navigate after logout.
@@ -57,6 +58,7 @@ export const msalConfig = {
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
 export const loginRequest = {
+    //scopes: [],
     scopes: ["api://a49c40ab-9685-475e-8550-8945a36a05fe/products", "api://a49c40ab-9685-475e-8550-8945a36a05fe/profiles"],
 };
 

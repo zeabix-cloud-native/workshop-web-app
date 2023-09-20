@@ -11,8 +11,8 @@ const GetProfileV1 = async (id, token) => {
     return response.json();
 }
 
-export const GetProfile = (id, token) => {
-    const apiEndpoint = process.env.REACT_APP_API_ENDPOINT + "/v1/profiles/" + id
+export const GetProfile = (token) => {
+    const apiEndpoint = process.env.REACT_APP_PROFILE_API_ENDPOINT + "/v2/profiles/me"
 
     return new Promise((resolve, reject) => {
         fetch(apiEndpoint, {

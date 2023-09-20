@@ -185,6 +185,14 @@ export const PageLayout = (props) => {
                             <ListItemText primary="Setup Account" />
                         </ListItemButton>
                     </ListItem>
+                    <ListItem to='/profiles' component={RouterLink}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <LocalGroceryStoreIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Profile" />
+                        </ListItemButton>
+                    </ListItem>
                     <ListItem to='/profiles-lite' component={RouterLink}>
                         <ListItemButton>
                             <ListItemIcon>
