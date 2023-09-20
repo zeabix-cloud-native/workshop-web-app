@@ -1,8 +1,9 @@
 import { Card, CardContent, CardHeader, Typography, Grid, Chip } from "@mui/material"
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import Grid3x3Icon from '@mui/icons-material/Grid3x3';
+import WarehouseIcon from '@mui/icons-material/Warehouse';
 
-export const ProductCard = (props) => {
+export const ProductCardWithStock = (props) => {
 
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -22,7 +23,10 @@ export const ProductCard = (props) => {
                     </Grid>
                     <Grid item xs={7}>
                         <Chip icon={<Grid3x3Icon/>} label={'SKU: ' + props.sku} color="success" />
-                    </Grid>             
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Chip icon={<WarehouseIcon/>} label={'In Stock: ' + props.stock } color="success" />
+                    </Grid>              
                 </Grid>
             </CardContent>
 

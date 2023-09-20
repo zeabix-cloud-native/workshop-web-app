@@ -8,7 +8,7 @@ import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
 import HomeIcon from '@mui/icons-material/Home';
@@ -185,20 +185,28 @@ export const PageLayout = (props) => {
                             <ListItemText primary="Setup Account" />
                         </ListItemButton>
                     </ListItem>
-                    <ListItem to='/profiles' component={RouterLink}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <LocalGroceryStoreIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Profiles" />
-                        </ListItemButton>
-                    </ListItem>
                     <ListItem to='/profiles-lite' component={RouterLink}>
                         <ListItemButton>
                             <ListItemIcon>
                                 <LocalGroceryStoreIcon />
                             </ListItemIcon>
                             <ListItemText primary="Summary Profile" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem to='/product-with-stock' component={RouterLink}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <LocalGroceryStoreIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Product with Stock" />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem to='/admin' component={RouterLink}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <LocalGroceryStoreIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Admin Page" />
                         </ListItemButton>
                     </ListItem>
                 </List>

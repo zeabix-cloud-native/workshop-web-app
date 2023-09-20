@@ -1,6 +1,3 @@
-
-import React from 'react';
-
 const GetProfileV1 = async (id, token) => {
     const apiEndpoint = process.env.REACT_APP_API_ENDPOINT + "/v1/profiles/" + id
     const response = await fetch(apiEndpoint, {

@@ -46,7 +46,7 @@ export const ProfileCard = (props) => {
                 console.log(error);
               });
           }
-    },[instance, accounts, inProgress, data])
+    },[instance, accounts, inProgress, data, props.id])
 
     if (!data){
         return (

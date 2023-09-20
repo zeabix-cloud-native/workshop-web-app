@@ -1,5 +1,5 @@
 
-import { Box, Button, FormControl, Grid, Input, InputLabel, TextField, Typography } from '@mui/material';
+import { Button, FormControl, Grid, TextField, Typography } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -11,7 +11,6 @@ import { useMsal } from '@azure/msal-react';
 import { loginRequest } from '../authConfig';
 
 import JsonView from '@uiw/react-json-view';
-import { darkTheme } from '@uiw/react-json-view/dark';
 
 import jwt_decode from "jwt-decode";
 
@@ -22,7 +21,7 @@ import './CreateAccountPage.css'
 
 export const CreateAccountPage = () => {
 
-    const { instance, inProgress, accounts } = useMsal();
+    const { instance } = useMsal();
 
     const [ firstname, setFirstname ] = useState();
     const [ lastname, setLastname ] = useState();
@@ -82,7 +81,7 @@ export const CreateAccountPage = () => {
             setProfile(res)
         })
         .catch((error) => console.log(error))
-    },[])
+    },[instance])
 
     if (profile != null){
         return (
